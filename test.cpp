@@ -9,5 +9,8 @@ using namespace cv;
 
 void main() {
 	string path = "";
+	Mat img = imread(path);
+	imshow("Frame", img);
+	waitKey(0);
 
 }
