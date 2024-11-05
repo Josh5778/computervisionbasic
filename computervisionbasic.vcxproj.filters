@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="chap8.cpp">
+    <ClCompile Include="virtual_painter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

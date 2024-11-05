@@ -15,7 +15,9 @@ void getContours(Mat imgDil,Mat img) {
 
 	vector<vector<Point>> contours;
 	vector<Vec4i> hierarchy;
-
+	vector<vector<Point>>conPoly(contours.size());
+	vector<Rect> boundRect(contours.size());
+	
 	findContours(imgDil, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
 	//drawContours(img, contours, -1, Scalar(255, 0, 255), 2);
 
@@ -24,8 +26,6 @@ void getContours(Mat imgDil,Mat img) {
 		int area = contourArea(contours[i]);
 		cout << area << endl;
 
-		vector<vector<Point>>conPoly(contours.size());
-		vector<Rect> boundRect(contours.size());
 		string objectType;
 
 		if (area > 1000) 
@@ -36,7 +36,7 @@ void getContours(Mat imgDil,Mat img) {
 			cout<<conPoly[i].size()<<endl;
 
 			boundRect[i] = boundingRect(conPoly[i]);
-			//rectangle(img, boundRect[i].tl(), boundRect[i].br(), Scalar(0, 255, 0), 5);*/
+			//rectangle(img, boundRect[i].tl(), boundRect[i].br(), Scalar(0, 255, 0), 5);
 			int objCor = (int)conPoly[i].size();
 			if (objCor == 3) { objectType = "Tri"; }
 			if (objCor == 4) {
